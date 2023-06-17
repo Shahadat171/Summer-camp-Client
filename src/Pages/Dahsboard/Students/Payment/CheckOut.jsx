@@ -2,7 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../Providers/AuthProviders";
 
-const CheckOut = ({ price, ClassId,selectedClass }) => {
+const CheckOut = ({ price, ClassId, selectedClass }) => {
   console.log(price);
   const [cardError, setCardError] = useState("");
   const { user } = useContext(AuthContext);
@@ -70,7 +70,10 @@ const CheckOut = ({ price, ClassId,selectedClass }) => {
     }
     console.log("payment intent", paymentIntent.status);
     if (paymentIntent.status === "succeeded") {
-      const transaction = { transactionId: paymentIntent.id, enrolledClass:selectedClass };
+      const transaction = {
+        transactionId: paymentIntent.id,
+        enrolledClass: selectedClass,
+      };
       setTransactionId(transaction);
       fetch(`http://localhost:5000/enrolledClass`, {
         method: "POST",

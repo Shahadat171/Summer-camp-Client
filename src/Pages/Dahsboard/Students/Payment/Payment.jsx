@@ -24,14 +24,18 @@ const Payment = () => {
         setSelectedClass(singleClass);
       });
   }, []);
-  console.log(selectedClass)
+  console.log(selectedClass);
   const total = parseInt(selectedClass.price);
   console.log(total);
   return (
     <div>
       <h2>Payment</h2>
       <Elements classname=" w-full h-12 " stripe={stripePromise}>
-        <CheckOut selectedClass={selectedClass} ClassId={ClassId} price={total}></CheckOut>
+        <CheckOut
+          selectedClass={selectedClass}
+          ClassId={ClassId}
+          price={total}
+        ></CheckOut>
       </Elements>
     </div>
   );

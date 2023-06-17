@@ -9,7 +9,7 @@ const ManageClass = () => {
       .then((data) => setAllClasses(data));
   }, []);
   const handleAproved = (Classes) => {
-    fetch(`http://localhost:5000/addedClass/admin/${Classes._id}`, {
+    fetch(`http://localhost:5000/addedClass/approved/${Classes._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -27,7 +27,7 @@ const ManageClass = () => {
       });
   };
   const handleDeny = (Classs) => {
-    fetch(`http://localhost:5000/addedClass/admin/${Classs._id}`, {
+    fetch(`http://localhost:5000/addedClass/denied/${Classs._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
