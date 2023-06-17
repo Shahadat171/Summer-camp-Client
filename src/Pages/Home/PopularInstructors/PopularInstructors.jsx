@@ -18,7 +18,7 @@ const PopularInstructors = () => {
           Join Our Inspiring Community of Teachers and Students
         </span>{" "}
       </h2>
-      <div className="grid grid-cols-3 gap-y-5">
+      <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-y-5">
         <div>
           <div className="card w-96 bg-base-100 shadow-xl image-full">
             <figure>

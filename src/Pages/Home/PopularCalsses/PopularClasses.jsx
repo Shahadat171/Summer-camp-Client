@@ -1,3 +1,4 @@
+import { Slide } from "react-awesome-reveal";
 import grammer from "./../../../assets/popular-classes/grammer.png";
 import listening from "./../../../assets/popular-classes/listening.png";
 import sentencStucture from "./../../../assets/popular-classes/sentence structure.png";
@@ -8,7 +9,8 @@ import { FaEye } from "react-icons/fa";
 const PopularClasses = () => {
   return (
     <div className="py-8 text-center">
-      <h2 className=" font-semibold text-slate-500 text-center py-8">
+     <Slide>
+     <h2 className=" font-semibold text-slate-500 text-center py-8">
         {" "}
         <span className="text-4xl">
           {" "}
@@ -16,7 +18,8 @@ const PopularClasses = () => {
         </span>{" "}
         <span className="text-3xl"> Extraordinary classes</span>{" "}
       </h2>
-      <div className="grid grid-cols-3 gap-y-5">
+     </Slide>
+      <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-y-5">
         <div>
           <div className="card card-compact w-96 bg-base-100 shadow-xl">
             <figure>

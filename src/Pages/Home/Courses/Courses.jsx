@@ -5,7 +5,7 @@ import Writing from "./../../../assets/courses/Writing.webp";
 
 const Courses = () => {
   return (
-    <div className="grid grid-cols-2 gap-y-0 pt-24 pb-8">
+    <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-y-0 pt-24 pb-8">
       <div className="pr-16">
         <h1 className="text-5xl text-slate-950 font-semibold pb-12">
           Most trending online courses
@@ -24,7 +24,7 @@ const Courses = () => {
           <button className="btn btn-primary text-white">View More</button>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-x-0 gap-y-7 ">
+      <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-x-0 gap-y-7 ">
         <div className="card w-72 h-52 bg-base-100 shadow-xl image-full">
           <figure>
             <img src={IELTS} alt="Shoes" />
