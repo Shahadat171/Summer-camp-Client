@@ -10,7 +10,7 @@ const useClasses = () => {
     enabled: !loading,
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/selectedClasses?email=${user?.email}`
+        `https://assignment-12-server-puce.vercel.app/selectedClasses?email=${user?.email}`
       );
       const data = await res.json();
       console.log(data);

@@ -11,14 +11,19 @@ const SelectedClass = () => {
     if (!user) {
       return;
     }
-    fetch(`http://localhost:5000/selectedClasses?email=${user.email}`)
+    fetch(
+      `https://assignment-12-server-puce.vercel.app/selectedClasses?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => setSelectedClass(data));
   }, [user]);
   const handleDelete = (Classes) => {
-    fetch(`http://localhost:5000/deleteSelectedClasses/${Classes._id}`, {
-      method: "DElETE",
-    })
+    fetch(
+      `https://assignment-12-server-puce.vercel.app/deleteSelectedClasses/${Classes._id}`,
+      {
+        method: "DElETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -28,15 +33,18 @@ const SelectedClass = () => {
       });
   };
   return (
-    <div>
-      <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
+    <div className="bg-[#125E8A] w-full h-full mt-20 flex flex-col items-center justify-center text-white">
+      <div className="overflow-x-auto bg-[#083149]">
+        <div className="overflow-x-auto"></div>
+        <table className="table text-white">
           <thead>
-            <tr>
+            <tr className="text-white">
               <th>
                 <label>
-                  <input type="checkbox" className="checkbox" />
+                  <input
+                    type="checkbox"
+                    className="checkbox text-white border-white bg-slate-400"
+                  />
                 </label>
               </th>
               <th className="">Name</th>
@@ -52,7 +60,10 @@ const SelectedClass = () => {
               <tr key={Class._id}>
                 <th>
                   <label>
-                    <input type="checkbox" className="checkbox" />
+                    <input
+                      type="checkbox"
+                      className="checkbox text-white border-white bg-slate-400"
+                    />
                   </label>
                 </th>
                 <td>{Class.name}</td>

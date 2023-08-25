@@ -12,7 +12,7 @@ const CheckOut = ({ price, ClassId, selectedClass }) => {
   const elements = useElements();
   useEffect(() => {
     // //  if(price>0){
-    //   fetch('http://localhost:5000/create-payment-intent',{
+    //   fetch('https://assignment-12-server-puce.vercel.app/create-payment-intent',{
     //     method: "POST",
     //     headers: {
     //       "Content-Type": "application/json",
@@ -23,13 +23,16 @@ const CheckOut = ({ price, ClassId, selectedClass }) => {
     //   .then(data=>setClientSecret(data.clientSecret))
     // }
     if (price > 0) {
-      fetch("http://localhost:5000/create-payment-intent", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ price }),
-      })
+      fetch(
+        "https://assignment-12-server-puce.vercel.app/create-payment-intent",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ price }),
+        }
+      )
         .then((res) => res.json())
         .then((data) => setClientSecret(data.clientSecret));
     }
@@ -75,7 +78,7 @@ const CheckOut = ({ price, ClassId, selectedClass }) => {
         enrolledClass: selectedClass,
       };
       setTransactionId(transaction);
-      fetch(`http://localhost:5000/enrolledClass`, {
+      fetch(`https://assignment-12-server-puce.vercel.app/enrolledClass`, {
         method: "POST",
         headers: {
           "content-type": "application/json",

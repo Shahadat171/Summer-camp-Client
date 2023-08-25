@@ -10,20 +10,15 @@ const PopularClasses = () => {
   return (
     <div className="py-8 text-center">
      <Slide>
-     <h2 className=" font-semibold text-slate-500 text-center py-8">
-        {" "}
-        <span className="text-4xl">
-          {" "}
-          Exlpore Some of our <br />
-        </span>{" "}
-        <span className="text-3xl"> Extraordinary classes</span>{" "}
+     <h2 className="text-4xl font-sans text-black text-center tracking-[0.09em] drop-shadow-2xl font-[700]  py-16">
+        Some Extonishing Classes
       </h2>
      </Slide>
-      <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-y-5">
+      <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-y-10">
         <div>
-          <div className="card card-compact w-96 bg-base-100 shadow-xl">
+          <div className="hover:scale-110 transition duration-300 cursor-pointer card card-compact w-96 bg-base-100 shadow-xl">
             <figure>
-              <img className=" h-52 " src={grammer} />
+              <img className="h-52 " src={grammer} />
             </figure>
             <div className="card-body">
               <div className="flex justify-between ">
@@ -37,7 +32,7 @@ const PopularClasses = () => {
           </div>
         </div>
         <div>
-          <div className="card card-compact w-96 bg-base-100 shadow-xl">
+          <div className="hover:scale-110 transition duration-300 cursor-pointer card card-compact w-96 bg-base-100 shadow-xl">
             <figure>
               <img className=" h-52 " src={listening} alt="Shoes" />
             </figure>
@@ -53,7 +48,7 @@ const PopularClasses = () => {
           </div>
         </div>
         <div>
-          <div className="card card-compact w-96 bg-base-100 shadow-xl">
+          <div className="hover:scale-110 transition duration-300 cursor-pointer card card-compact w-96 bg-base-100 shadow-xl">
             <figure>
               <img className=" h-52 " src={sentencStucture} alt="Shoes" />
             </figure>
@@ -69,7 +64,7 @@ const PopularClasses = () => {
           </div>
         </div>
         <div>
-          <div className="card card-compact w-96 bg-base-100 shadow-xl">
+          <div className="hover:scale-110 transition duration-300 cursor-pointer card card-compact w-96 bg-base-100 shadow-xl">
             <figure>
               <img className=" h-52 " src={writing} alt="Shoes" />
             </figure>
@@ -85,7 +80,7 @@ const PopularClasses = () => {
           </div>
         </div>
         <div>
-          <div className="card card-compact w-96 bg-base-100 shadow-xl">
+          <div className="hover:scale-110 transition duration-300 cursor-pointer card card-compact w-96 bg-base-100 shadow-xl">
             <figure>
               <img className=" h-52 " src={spelling} alt="Shoes" />
             </figure>
@@ -101,7 +96,7 @@ const PopularClasses = () => {
           </div>
         </div>
         <div>
-          <div className="card card-compact w-96 bg-base-100 shadow-xl">
+          <div className="hover:scale-110 transition duration-300 cursor-pointer card card-compact w-96 bg-base-100 shadow-xl">
             <figure>
               <img className=" h-52 " src={speaking} alt="Shoes" />
             </figure>

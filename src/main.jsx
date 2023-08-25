@@ -11,7 +11,7 @@ import {
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <div className=" max-w-[1300px] mx-auto font-serif]">
+  <div className="mx-auto font-serif]">
     <React.StrictMode>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>

@@ -1,15 +1,25 @@
 import { useContext } from "react";
-import { FaAngleLeft } from "react-icons/fa";
+import {
+  FaAngleLeft,
+  FaArrowRight,
+  FaBookmark,
+  FaStar,
+  FaUserFriends,
+} from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { Slide } from "react-awesome-reveal";
 import Slider from "../Home/Slider/Slider";
+import { FaBookBookmark } from "react-icons/fa6";
+import bookmark from "../../assets/Social media/bookmark.png";
+import avatar from "../../assets/AllClasses/pngwing.com.png";
 const Class = ({ EveryClass }) => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContext);
-  const { name, image, instructorName, price, availableSeats } = EveryClass;
+  const { name, rating, topic, image, instructorName, price, availableSeats } =
+    EveryClass;
   const handleSelect = () => {
     if (!user) {
       Swal.fire({
@@ -34,7 +44,7 @@ const Class = ({ EveryClass }) => {
         price,
         email: user.email,
       };
-      fetch("http://localhost:5000/selectedClasses", {
+      fetch("https://assignment-12-server-puce.vercel.app/selectedClasses", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -61,33 +71,56 @@ const Class = ({ EveryClass }) => {
     <div>
       {
         <Slide>
-          <div className="card w-96 glass">
+          <div className="card w-96  bg-white shadow-sm">
             <figure>
-              <img className="h-52" src={image} alt="car!" />
+              <img src={image} />
             </figure>
+            <div className="absolute top-2 right-2 p-2 rounded-full glass drop-shadow-lg">
+              <img src={bookmark} className="w-6 h-6" alt="" />
+            </div>
             <div className="card-body">
-              <div className="flex items-center justify-between gap-x-5">
+              <a
+                role="button"
+                className="bg-[#41246D] w-28 border-none hover:bg-[#6c4c9b] -mt-12 text-white text-sm px-4 py-2  border rounded-full"
+              >
+                {topic}
+              </a>
+              <div className="">
                 <div>
-                  <h2 className="card-title">{name}</h2>
-                  <p>Instructor: {instructorName}</p>
+                  <h2 className="text-2xl font-bold text-black opacity-80">
+                    {name}
+                  </h2>
                 </div>
-                <div>
-                  <p>Price: ${price}</p>
-                  <div>
-                    <p className="flex items-center">
-                      Seats: <FaAngleLeft />
-                      {availableSeats}
-                      <FaAngleRight />
-                    </p>
+                <div className="flex items-center mt-3 mb-2">
+                  ( <span>{rating} ratings</span> )
+                  <div className="flex items-center gap-2 ml-5">
+                    <FaStar className="text-[#F24080]"></FaStar>
+                    <FaStar className="text-[#F24080]"></FaStar>
+                    <FaStar className="text-[#F24080]"></FaStar>
+                    <FaStar className="text-[#F24080]"></FaStar>
                   </div>
                 </div>
+                <div className="flex items-center gap-5 mt-5">
+                  <div className="avatar">
+                    <div className="w-8 rounded-full">
+                      <img src={avatar} />
+                    </div>
+                  </div>
+                  <p className="text-lg font-semibold font-[Poppins] tracking-wide drop-shadow-xl">
+                    Prof.{instructorName}
+                  </p>
+                </div>
               </div>
-              <div className="card-actions mt-5 w-full justify-end">
+              <hr className="mt-4" />
+              <div className="card-actions items-center mt-2 w-full ">
+                <FaUserFriends />
+                <p className="ml-3">60+ Students</p>
                 <button
                   onClick={handleSelect}
-                  className="btn w-full btn-primary"
+                  className="flex items-center gap-2 "
                 >
-                  Select
+                  <span className="font-semibold">Enroll Course</span>
+                  <FaArrowRight />
                 </button>
               </div>
             </div>

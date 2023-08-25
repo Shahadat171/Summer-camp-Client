@@ -28,7 +28,7 @@ const SignUp = () => {
       profileUpdateData(data.name, data.photoURL)
         .then(() => {
           const saveUser = { name: data.name, email: data.email };
-          fetch("http://localhost:5000/users", {
+          fetch("https://assignment-12-server-puce.vercel.app/users", {
             method: "POST",
             headers: {
               "content-type": "application/json",

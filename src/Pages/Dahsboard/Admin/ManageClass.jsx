@@ -4,14 +4,17 @@ import Swal from "sweetalert2";
 const ManageClass = () => {
   const [allClasses, setAllClasses] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/addedClass/admin")
+    fetch("https://assignment-12-server-puce.vercel.app/addedClass/admin")
       .then((res) => res.json())
       .then((data) => setAllClasses(data));
   }, []);
   const handleAproved = (Classes) => {
-    fetch(`http://localhost:5000/addedClass/approved/${Classes._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://assignment-12-server-puce.vercel.app/addedClass/approved/${Classes._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -27,9 +30,12 @@ const ManageClass = () => {
       });
   };
   const handleDeny = (Classs) => {
-    fetch(`http://localhost:5000/addedClass/denied/${Classs._id}`, {
-      method: "PATCH",
-    })
+    fetch(
+      `https://assignment-12-server-puce.vercel.app/addedClass/denied/${Classs._id}`,
+      {
+        method: "PATCH",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -43,6 +49,11 @@ const ManageClass = () => {
           });
         }
       });
+  };
+  const handlefeedback = (event) => {
+    event.preventDefault();
+    const feedback = event.target.feedback.value;
+    console.log(feedback);
   };
   return (
     <div>
@@ -99,7 +110,39 @@ const ManageClass = () => {
                 </button>
               </td>
               <td>
-                <button className="btn btn-primary">Feddback</button>
+                {/* Open the modal using ID.showModal() method */}
+                <button
+                  className="btn btn-primary"
+                  onClick={() => window.my_modal_5.showModal()}
+                >
+                  Feddback
+                </button>
+                <dialog
+                  id="my_modal_5"
+                  className="modal modal-bottom sm:modal-middle"
+                >
+                  <form method="dialog" className="modal-box">
+                    <form onSubmit={handlefeedback}>
+                      <div className="form-control">
+                        <input
+                          name="feedback"
+                          type="text"
+                          placeholder="Give feedback"
+                          className="input input-bordered input-primary w-full max-w-xs"
+                        />
+                      </div>
+                      <input
+                        type="submit"
+                        value="Send"
+                        className="mt-10 btn btn-primary"
+                      />
+                    </form>
+                    <div className="modal-action">
+                      {/* if there is a button in form, it will close the modal */}
+                      <button className="btn">Close</button>
+                    </div>
+                  </form>
+                </dialog>
               </td>
             </tr>
           ))}

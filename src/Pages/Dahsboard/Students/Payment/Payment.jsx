@@ -15,7 +15,9 @@ const Payment = () => {
     if (!user) {
       return;
     }
-    fetch(`http://localhost:5000/selectedClasses?email=${user.email}`)
+    fetch(
+      `https://assignment-12-server-puce.vercel.app/selectedClasses?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         const singleClass = data.find(
@@ -28,15 +30,17 @@ const Payment = () => {
   const total = parseInt(selectedClass.price);
   console.log(total);
   return (
-    <div>
-      <h2>Payment</h2>
-      <Elements classname=" w-full h-12 " stripe={stripePromise}>
-        <CheckOut
-          selectedClass={selectedClass}
-          ClassId={ClassId}
-          price={total}
-        ></CheckOut>
-      </Elements>
+    <div className="bg-[#125E8A] w-full h-full mt-20 flex flex-col items-center justify-center text-white">
+      <div className="bg-[#083149] text-white p-10 rounded-md">
+        <h2>Payment</h2>
+        <Elements classname=" w-full h-12 " stripe={stripePromise}>
+          <CheckOut
+            selectedClass={selectedClass}
+            ClassId={ClassId}
+            price={total}
+          ></CheckOut>
+        </Elements>
+      </div>
     </div>
   );
 };

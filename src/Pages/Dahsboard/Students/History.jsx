@@ -3,22 +3,25 @@ import React, { useEffect, useState } from "react";
 const History = () => {
   const [historis, setHistoris] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/enrolledClass")
+    fetch("https://assignment-12-server-puce.vercel.app/enrolledClass")
       .then((res) => res.json())
       .then((data) => setHistoris(data));
   }, []);
 
   return (
-    <div>
+    <div className="bg-[#125E8A] w-full h-full mt-20 flex flex-col items-center justify-center text-white">
       <div>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto bg-[#083149]">
           <table className="table">
             {/* head */}
             <thead>
-              <tr>
+              <tr className="text-white">
                 <th>
                   <label>
-                    <input type="checkbox" className="checkbox" />
+                    <input
+                      type="checkbox"
+                      className="checkbox text-white border-white bg-slate-400"
+                    />
                   </label>
                 </th>
                 <th className="">Name</th>
@@ -31,7 +34,10 @@ const History = () => {
                 <tr key={Class._id}>
                   <th>
                     <label>
-                      <input type="checkbox" className="checkbox" />
+                      <input
+                        type="checkbox"
+                        className="checkbox text-white border-white bg-slate-400"
+                      />
                     </label>
                   </th>
                   <td>{Class.enrolledClass.name}</td>

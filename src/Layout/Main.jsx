@@ -1,14 +1,14 @@
 
 import { Outlet } from 'react-router-dom';
-import Navbar from '../Pages/Navbar/Navbar';
 import Footer from '../Pages/Footer/Footer';
+import Navbar from '../Pages/Navbar/Navbar';
 
 const Main = () => {
     return (
         <div>
           <Navbar></Navbar>
-          <Outlet></Outlet>
-          <Footer></Footer>
+          <div className=''><Outlet></Outlet></div>
+         <div className=' bg-gradient-to-r from-[#03387B] to-[#048F87] w-full'><Footer></Footer></div>
         </div>
     );
 };

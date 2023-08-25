@@ -31,7 +31,7 @@ const Login = () => {
           email: result.user.email,
         };
         console.log(loggedUser);
-        fetch("http://localhost:5000/users", {
+        fetch("https://assignment-12-server-puce.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -46,7 +46,7 @@ const Login = () => {
       });
   };
   return (
-    <div>
+    <div className="pt-20">
       <div>
         <div
           style={{
